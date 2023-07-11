@@ -7,7 +7,7 @@
 
 #include <map>
 #include <string>
-
+#include <glob.h>
 class AudioEffectContext {
 private:
     std::map<std::string,void*>* mResponse;
