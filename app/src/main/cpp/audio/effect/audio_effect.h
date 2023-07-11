@@ -16,7 +16,7 @@ class AudioEffect {
     float mAudioVolume;
 
     /**配置文件中读取实现解耦*/
-    SOXFilterChainParam* SmOXFilterChainParam;
+    SOXFilterChainParam* mSOXFilterChainParam;
     std::list<int>* mVocalEffectFilters;
     std::list<int>* mAccompanyEffectFilters;
     std::list<int>* mMixPostEffectFilters;

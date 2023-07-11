@@ -7,7 +7,8 @@
 
 #include <map>
 #include <string>
-#include <glob.h>
+#include "../../../thirdparty/sox.include/sox.h"
+
 class AudioEffectContext {
 private:
     std::map<std::string,void*>* mResponse;

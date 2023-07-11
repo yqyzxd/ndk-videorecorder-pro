@@ -18,7 +18,7 @@ public:
     ~AudioEffectProcessorFactory();
 
 
-    AudioEffectProcessor* buildAudioEffectProcessor();
+    AudioEffectProcessor* buildLiveAudioEffectProcessor();
 
 };
 

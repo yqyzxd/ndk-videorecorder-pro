@@ -4,6 +4,7 @@
 
 #include "audio_effect_context.h"
 
+
 AudioEffectContext::AudioEffectContext() {
     mResponse=new std::map<std::string,void*>();
 }
@@ -24,11 +25,12 @@ AudioEffectContext *AudioEffectContext::GetInstance() {
 }
 
 void AudioEffectContext::init() {
-
+    //在调用sox_quit前不可重复调用 sox_init
+    sox_init();
 }
 
 void AudioEffectContext::dealloc() {
-
+    sox_quit();
 }
 
 void AudioEffectContext::copy(std::map<std::string, void *> *src) {

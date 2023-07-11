@@ -13,6 +13,6 @@ AudioEffectProcessorFactory *AudioEffectProcessorFactory::GetInstance() {
     return instance;
 }
 
-AudioEffectProcessor *AudioEffectProcessorFactory::buildAudioEffectProcessor() {
+AudioEffectProcessor *AudioEffectProcessorFactory::buildLiveAudioEffectProcessor() {
    // return new Aud
 }

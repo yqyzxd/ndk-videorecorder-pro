@@ -6,6 +6,7 @@ project(${NAME})
 set(THIRD_PARTY "${CMAKE_SOURCE_DIR}/thirdparty")
 set(FFMPEG_LIBS "${THIRD_PARTY}/prebuilt/${CMAKE_ANDROID_ARCH_ABI}/")
 include_directories(${THIRD_PARTY}/ffmpeg/include/)
+include_directories(${THIRD_PARTY}/sox/include/)
 #链接ffmpeng
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -L${FFMPEG_LIBS}")
 
@@ -76,6 +77,8 @@ add_library( # Sets the name of the library.
         audio/effect/processor/audio_response.cpp
         audio/effect/processor/audio_effect_context.cpp
 
+        audio/effect/filter/audio_effect_filter_chain.cpp
+        
         utils/jni_caller.cpp
 
         )
@@ -103,5 +106,6 @@ target_link_libraries( # Specifies the target library.
         swresample
         swscale
 
+        sox
         yuv
         )
