@@ -34,6 +34,21 @@ public:
                 float outputGain
                 );
     ~AudioEffect();
+
+
+    float getAccompanyVolume(){
+        return mAccompanyVolume;
+    }
+    float getAudioVolume(){
+        return mAudioVolume;
+    }
+
+    AudioInfo* getAudioInfo(){
+        return mAudioInfo;
+    }
+
+
+
 };
 
 

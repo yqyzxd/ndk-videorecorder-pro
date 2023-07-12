@@ -5,12 +5,22 @@
 #include "music_merger.h"
 #include "../../utils/types.h"
 #include "../../utils/log.h"
+#include "../effect/processor/audio_effect_processor_factory.h"
 
 #define LOG_TAG "MusicMerger"
 MusicMerger::MusicMerger(){
 
 }
 MusicMerger::~MusicMerger() {
+
+}
+
+void MusicMerger::initWithAudioEffectProcessor(int audioSampleRate, AudioEffect *audioEffect) {
+    this->mAudioSampleRate=audioSampleRate;
+    if (mAudioEffectProcessor== nullptr){
+        mAudioEffectProcessor=AudioEffectProcessorFactory::GetInstance()->buildLiveAudioEffectProcessor();
+        mAudioEffectProcessor->init(audioEffect);
+    }
 
 }
 

@@ -14,7 +14,7 @@ public:
     AudioProcessEncoderAdapter();
     virtual ~AudioProcessEncoderAdapter();
 
-    int init(int audioBitrate,int audioSampleRate, int audioChannels);
+    int init(int audioBitrate,int audioSampleRate, int audioChannels,AudioEffect* audioEffect);
     void dealloc();
 protected:
      void discardAudioPacket();

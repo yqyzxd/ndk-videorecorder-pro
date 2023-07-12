@@ -7,6 +7,13 @@
 
 
 typedef struct AudioInfo {
+    int channels;
+    int sampleRate;
+
+    float accompanyAGCVolume;
+    float audioAGCVolume;
+    float accompanyPitch;
+    int pitchShiftLevel;
 
 
 }AudioInfo;

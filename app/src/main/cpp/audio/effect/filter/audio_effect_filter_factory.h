@@ -5,6 +5,8 @@
 #ifndef NDK_VIDEORECORDER_PRO_AUDIO_EFFECT_FILTER_FACTORY_H
 #define NDK_VIDEORECORDER_PRO_AUDIO_EFFECT_FILTER_FACTORY_H
 
+#include "audio_effect_filter.h"
+#include "impl/volume_adjust/vocal_agc_volume_adjust_effect_filter.h"
 typedef enum EffectFilterType{
     FilterTypeVocalAGCVolumeAdjustEffect,//人声自动音量控制的音量调节
     FilterTypeAccompanyAGCVolumeAdjustEffect,//伴奏自动音量控制的音量调节
@@ -34,7 +36,13 @@ typedef enum EffectFilterType{
 }EffectFilterType;
 
 class AudioEffectFilterFactory {
-
+private:
+    AudioEffectFilterFactory();
+    static AudioEffectFilterFactory* instance;
+public:
+    static AudioEffectFilterFactory* GetInstance();
+    ~AudioEffectFilterFactory();
+    AudioEffectFilter* buildFilter(EffectFilterType type);
 };
 
 

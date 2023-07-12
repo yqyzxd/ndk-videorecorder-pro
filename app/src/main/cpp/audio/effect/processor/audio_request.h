@@ -28,6 +28,19 @@ public:
     void init(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize, float position, long frameSize);
     void initAccompany(short *accompanyBuf, int accompanyBufSize, float position, long frameSize);
 
+
+    short* getVocalBuf() {
+        return mVocalBuf;
+    }
+    int getVocalBufSize(){
+        return mVocalBufSize;
+    }
+    short* getAccompanyBuf() {
+        return mAccompanyBuf
+    }
+    int getAccompanyBufSize(){
+        return mAccompanyBufSize;
+    }
 };
 
 

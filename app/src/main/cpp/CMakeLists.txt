@@ -78,7 +78,11 @@ add_library( # Sets the name of the library.
         audio/effect/processor/audio_effect_context.cpp
 
         audio/effect/filter/audio_effect_filter_chain.cpp
-        
+        audio/effect/filter/audio_effect_filter_factory.cpp
+        audio/effect/volume_adjuster.cpp
+
+        audio/effect/filter/impl/volume_adjust/vocal_agc_volume_adjust_effect_filter.cpp
+
         utils/jni_caller.cpp
 
         )

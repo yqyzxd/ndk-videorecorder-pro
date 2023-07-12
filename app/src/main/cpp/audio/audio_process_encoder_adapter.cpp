@@ -11,7 +11,7 @@ AudioProcessEncoderAdapter::~AudioProcessEncoderAdapter() noexcept {
 
 }
 
-int AudioProcessEncoderAdapter::init(int audioBitrate, int audioSampleRate, int audioChannels) {
+int AudioProcessEncoderAdapter::init(int audioBitrate, int audioSampleRate, int audioChannels,AudioEffect* audioEffect) {
     int ret = AudioEncoderAdapter::init(audioBitrate, audioSampleRate, audioChannels);
     if (ret < 0) {
         return -1;
@@ -19,6 +19,7 @@ int AudioProcessEncoderAdapter::init(int audioBitrate, int audioSampleRate, int 
     mAccompanyCursor=0;
     mAccompanyPool = VideoPacketPool::getInstance();
     mMerger = new MusicMerger();
+    mMerger->initWithAudioEffectProcessor(audioSampleRate,audioEffect);
     return 0;
 }
 
@@ -91,5 +92,11 @@ void AudioProcessEncoderAdapter::dealloc() {
         mAccompanyFrame= nullptr;
     }
     mAccompanyCursor=0;
+
+    if (mMerger!= nullptr){
+        mMerger->dealloc();
+        mMerger= nullptr;
+    }
+
     AudioEncoderAdapter::dealloc();
 }
