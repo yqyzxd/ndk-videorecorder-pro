@@ -27,6 +27,9 @@ void MusicMerger::initWithAudioEffectProcessor(int audioSampleRate, AudioEffect 
 int MusicMerger::mergeMusic(short *accompanySamples, int accompanySize,int* accompanySamplesCursor,
                             short *audioSamples,int audioSize,int* audioSamplesCursor) {
 
+
+
+
     int ret=0;
     int accompanyRemainSize=accompanySize-*accompanySamplesCursor;
     int audioRemainSize=audioSize-*audioSamplesCursor;
@@ -39,9 +42,7 @@ int MusicMerger::mergeMusic(short *accompanySamples, int accompanySize,int* acco
         } else{
             ret=-2;//means need more
         }
-
     }
-
 
     for (int i=0;i<mergeSize;i++){
         int audioPosition=*audioSamplesCursor+i;
@@ -61,6 +62,10 @@ int MusicMerger::mergeMusic(short *accompanySamples, int accompanySize,int* acco
     *audioSamplesCursor=newAudioSamplesCursor;
     return ret;
 }
+
+
+
+
 //音频混音 https://blog.csdn.net/u010164190/article/details/117691952
 short MusicMerger::mixSamples(short a, short b) {
 

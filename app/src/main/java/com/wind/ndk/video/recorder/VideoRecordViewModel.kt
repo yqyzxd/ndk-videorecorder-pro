@@ -61,6 +61,12 @@ class VideoRecordViewModel(
         if (!mRecording) {
             mSecs = 0
             mRecording = true
+
+
+
+
+
+
             val h264File = "${mApp.getExternalFilesDir(null)?.absolutePath}/record.flv"
             val file = File(h264File)
             if (file.exists()) {

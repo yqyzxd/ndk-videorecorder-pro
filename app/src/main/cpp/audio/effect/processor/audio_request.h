@@ -36,7 +36,7 @@ public:
         return mVocalBufSize;
     }
     short* getAccompanyBuf() {
-        return mAccompanyBuf
+        return mAccompanyBuf;
     }
     int getAccompanyBufSize(){
         return mAccompanyBufSize;

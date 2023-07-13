@@ -76,12 +76,16 @@ add_library( # Sets the name of the library.
         audio/effect/processor/audio_request.cpp
         audio/effect/processor/audio_response.cpp
         audio/effect/processor/audio_effect_context.cpp
+        audio/effect/processor/post/audio_effect_post_processor.cpp
+        audio/effect/processor/live/audio_effect_live_processor.cpp
 
         audio/effect/filter/audio_effect_filter_chain.cpp
         audio/effect/filter/audio_effect_filter_factory.cpp
         audio/effect/volume_adjuster.cpp
 
         audio/effect/filter/impl/volume_adjust/vocal_agc_volume_adjust_effect_filter.cpp
+        audio/effect/filter/impl/specific/mix_effect_filter.cpp
+        audio/effect/filter/impl/specific/pitch_shift_mix_effect_filter.cpp
 
         utils/jni_caller.cpp
 

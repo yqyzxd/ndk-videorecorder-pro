@@ -8,6 +8,8 @@
 #include "../effect/audio_effect.h"
 #include "../effect/processor/audio_effect_processor.h"
 
+
+
 //将伴奏和录音合并成一轨
 class MusicMerger {
 public:
@@ -15,8 +17,9 @@ public:
     ~MusicMerger();
 
     int mergeMusic(short* accompanySamples,int accompanySize,int* accompanySamplesCursor,short* audioSamples,int audioSize,int* audioSamplesCursor);
-
     void initWithAudioEffectProcessor(int audioSampleRate, AudioEffect *audioEffect);
+
+    void setAudioEffect(AudioEffect* audioEffect);
 
     void dealloc();
 private:

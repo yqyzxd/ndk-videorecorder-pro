@@ -9,7 +9,7 @@
 
 class AudioEffectFilterChain {
 private:
-    std::list<AudioEffectFilter*>* mFilter;
+    std::list<AudioEffectFilter*>* mFilters;
 public:
     AudioEffectFilterChain();
     ~AudioEffectFilterChain();

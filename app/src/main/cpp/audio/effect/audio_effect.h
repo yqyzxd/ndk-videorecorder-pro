@@ -35,6 +35,16 @@ public:
                 );
     ~AudioEffect();
 
+    std::list<int>* getVocalEffectFilters(){
+        return mVocalEffectFilters;
+    }
+
+    std::list<int>* getAccompanyEffectFilters(){
+        return mAccompanyEffectFilters;
+    }
+    std::list<int>* getMixPostEffectFilters(){
+        return mMixPostEffectFilters;
+    }
 
     float getAccompanyVolume(){
         return mAccompanyVolume;

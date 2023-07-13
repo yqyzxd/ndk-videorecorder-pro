@@ -4,6 +4,7 @@
 
 #include "audio_effect_processor_factory.h"
 
+
 AudioEffectProcessorFactory::AudioEffectProcessorFactory() {}
 AudioEffectProcessorFactory::~AudioEffectProcessorFactory() {}
 
@@ -14,5 +15,5 @@ AudioEffectProcessorFactory *AudioEffectProcessorFactory::GetInstance() {
 }
 
 AudioEffectProcessor *AudioEffectProcessorFactory::buildLiveAudioEffectProcessor() {
-   // return new Aud
+    return new AudioEffectLiveProcessor();
 }

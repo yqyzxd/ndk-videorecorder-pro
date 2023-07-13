@@ -7,6 +7,7 @@
 
 
 #include "audio_effect_processor.h"
+#include "live/audio_effect_live_processor.h"
 
 class AudioEffectProcessorFactory {
 private:
