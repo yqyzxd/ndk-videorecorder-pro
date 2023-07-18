@@ -15,11 +15,9 @@ import android.media.audiofx.Equalizer
 object AudioEffectParamController {
 
     fun extractParam(audioStyle:AudioEffectStyle,equalizer: AudioEffectEQ):AudioEffect{
-        if (audioStyle==AudioEffectStyle.LENOVO_EFFECT){
-
+        if (audioStyle == AudioEffectStyle.LENOVO_EFFECT){
+            return LenovoAudioEffect(AudioEffect.getDefault())
         }
-
-
         return AudioEffect.getDefault()
     }
 

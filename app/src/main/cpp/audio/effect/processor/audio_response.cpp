@@ -18,3 +18,7 @@ void* AudioResponse::get(std::string key){
     }
     return nullptr;
 }
+
+void AudioResponse::dealloc() {
+    mExtraData->clear();
+}

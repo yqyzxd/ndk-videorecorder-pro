@@ -11,31 +11,49 @@ package com.wind.ndk.audio.effect
  *  <author> <time> <version> <desc>
  *
  */
-class AudioEffect(
+open class AudioEffect(
     private var vocalPitch: Float,
     private var accompanyVolume: Float,
-    private var audioVolume: Float,
+    var audioVolume: Float,
     private var songStyleId: Int,
     private var subId: Int,
     private var vocalEffectFilterChain: List<Int>,
     private var accompanyEffectFilterChain: List<Int>,
     private var mixPostEffectFilterChain: List<Int>
 ) {
-    private var songStyleName: String
-    private var subName: String
-
-    private var reverbParam: SOXReverbParam? = null
-    private var compressorParam: SOXCompressorParam? = null
-    private var equalizerParam: SOXEqualizerParam? = null
 
 
+    private lateinit var reverbParam: SOXReverbParam
+    private lateinit var compressorParam: SOXCompressorParam
+    private lateinit var equalizerParam: SOXEqualizerParam
 
 
-    init {
-        songStyleName = AudioEffectStyle.getEnum(songStyleId).name
-        subName = AudioEffectEQ.getEnum(subId).name
+    private var songStyleName: String = AudioEffectStyle.getEnum(songStyleId).name
+    private var subName: String = AudioEffectEQ.getEnum(subId).name
+    private var outputGainParam:OutputGainParam = OutputGainParam.getDefault()
+    private var adjustEchoReverbParam:AdjustEchoReverbParam = AdjustEchoReverbParam.getDefault()
+
+
+    private var type=0
+
+    var audioInfo:AudioInfo?=null
+    constructor(audioEffect:AudioEffect) : this(audioEffect.vocalPitch,audioEffect.accompanyVolume,
+        audioEffect.audioVolume, audioEffect.songStyleId, audioEffect.subId, audioEffect.vocalEffectFilterChain,
+        audioEffect.accompanyEffectFilterChain, audioEffect.mixPostEffectFilterChain) {
+
+        this.type=audioEffect.type
+        this.audioInfo=audioEffect.audioInfo
+        this.reverbParam= SOXReverbParam(audioEffect.reverbParam)
+        this.compressorParam= SOXCompressorParam(audioEffect.compressorParam)
+        this.equalizerParam=SOXEqualizerParam(audioEffect.equalizerParam)
+
+        if (audioEffect.outputGainParam!=null){
+            this.outputGainParam=OutputGainParam(audioEffect.outputGainParam)
+        }
+        if (audioEffect.adjustEchoReverbParam!=null){
+            this.adjustEchoReverbParam= AdjustEchoReverbParam(audioEffect.adjustEchoReverbParam)
+        }
     }
-
 
     companion object {
 
@@ -73,7 +91,6 @@ class AudioEffect(
             audioEffect.accompanyEffectFilterChain=accompanyFilterChain
 
             //mix之后的filter chain
-
             val mixPostFilterChain= listOf(
                 AudioEffectFilterType.FadeOutEffectFilter.id
             )

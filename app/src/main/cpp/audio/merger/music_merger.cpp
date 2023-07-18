@@ -24,6 +24,13 @@ void MusicMerger::initWithAudioEffectProcessor(int audioSampleRate, AudioEffect 
 
 }
 
+void MusicMerger::setAudioEffect(AudioEffect *audioEffect) {
+    if (mAudioEffectProcessor!= nullptr){
+        mAudioEffectProcessor->setAudioEffect(audioEffect);
+    }
+
+}
+
 int MusicMerger::mergeMusic(short *accompanySamples, int accompanySize,int* accompanySamplesCursor,
                             short *audioSamples,int audioSize,int* audioSamplesCursor) {
 
@@ -88,4 +95,11 @@ short MusicMerger::mixSamples(short a, short b) {
         tmp=INT16_MIN;
     }
     return tmp;
+}
+
+void MusicMerger::dealloc() {
+    if (mAudioEffectProcessor!= nullptr){
+        mAudioEffectProcessor->dealloc();
+        delete mAudioEffectProcessor;
+    }
 }

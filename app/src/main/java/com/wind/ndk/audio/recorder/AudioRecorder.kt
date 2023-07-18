@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
+import com.wind.ndk.audio.effect.AudioEffect
 import com.wind.ndk.audiorecoder.AudioConfigurationException
 
 object AudioRecorder {
@@ -98,10 +99,25 @@ object AudioRecorder {
     fun setConsumer(consumer: Consumer){
         this.mConsumer=consumer
     }
+
+    fun setAudioEffect(audioEffect: AudioEffect) {
+        if (mConsumer!=null && mConsumer is AudioEffectSetter){
+            val setter = mConsumer as AudioEffectSetter
+            setter.setAudioEffect(audioEffect)
+        }
+
+    }
+
     interface Consumer{
         fun begin()
         fun consume(shortArray: ShortArray, sizeInShort:Int)
         fun end()
+
+
+    }
+
+    interface AudioEffectSetter {
+        fun setAudioEffect(audioEffect: AudioEffect)
     }
 
 }

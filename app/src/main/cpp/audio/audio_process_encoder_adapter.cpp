@@ -75,6 +75,13 @@ int AudioProcessEncoderAdapter::processAudio() {
     return mPacketBufferSize;
 }
 
+void AudioProcessEncoderAdapter::setAudioEffect(AudioEffect *audioEffect) {
+    AudioEncoderAdapter::setAudioEffect(audioEffect);
+    if (mMerger!= nullptr){
+        mMerger->setAudioEffect(audioEffect);
+    }
+}
+
 void AudioProcessEncoderAdapter::discardAudioPacket() {
     AudioEncoderAdapter::discardAudioPacket();
 

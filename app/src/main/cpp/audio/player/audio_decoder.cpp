@@ -150,6 +150,7 @@ int AudioDecoder::decode() {
                 *
                 * @return number of samples output per channel, negative value on error
                 */
+
                 uint8_t *out[2] ={static_cast<uint8_t *>(dstData), nullptr};
                 ret = swr_convert(mSwrContext, out, dst_nb_samples,
                                   (const uint8_t **) mAVFrame->data, mAVFrame->nb_samples);
@@ -177,6 +178,9 @@ int AudioDecoder::decode() {
             audioFrame->size = dstSizeInShort;
 
 
+            //计算position
+            audioFrame->position= mAVFrame->best_effort_timestamp;
+            LOGE("av frame best_effort_timestamp:%d",mAVFrame->best_effort_timestamp);
 
             if (mOnAudioFrameAvailableCallback != nullptr) {
                 mOnAudioFrameAvailableCallback(ctx, audioFrame);

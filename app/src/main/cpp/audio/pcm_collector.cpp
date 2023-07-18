@@ -102,3 +102,9 @@ void PcmCollector::stop() {
     }
 
 }
+
+void PcmCollector::setAudioEffect(AudioEffect *audioEffect) {
+    if (mAudioEncoderAdapter!= nullptr){
+        mAudioEncoderAdapter->setAudioEffect(audioEffect);
+    }
+}

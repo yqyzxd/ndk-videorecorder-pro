@@ -40,6 +40,15 @@ data class SOXEqualizerParam(
     private var highpassBandWidth:Float,
     ){
 
+
+    constructor(param: SOXEqualizerParam):this(param.enable1,param.frequency1,param.bandWidth1,param.gain1,
+        param.enable2,param.frequency2,param.bandWidth2,param.gain2,
+        param.enable3,param.frequency3,param.bandWidth3,param.gain3,
+        param.enable4,param.frequency4,param.bandWidth4,param.gain4,
+        param.lowpassEnabled,param.lowpassFrequency,param.lowpassBandWidth,
+        param.highpassEnabled,param.highpassFrequency,param.highpassBandWidth,
+        )
+
     companion object{
         @JvmStatic
         fun getDefault():SOXEqualizerParam{

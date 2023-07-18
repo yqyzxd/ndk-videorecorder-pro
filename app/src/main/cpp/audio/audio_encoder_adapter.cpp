@@ -173,3 +173,7 @@ int AudioEncoderAdapter::collectAudioPacket(AudioPacket *packet) {
     //LOGI("audio packet size:%d",mAudioPool->getVideoPacketQueueSize());
     return ret;
 }
+
+void AudioEncoderAdapter::setAudioEffect(AudioEffect *audioEffect) {
+
+}

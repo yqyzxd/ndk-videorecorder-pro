@@ -21,6 +21,9 @@ public:
 
     void collect(short *data, int sizeInShort);
     void stop();
+
+    void setAudioEffect(AudioEffect *audioEffect);
+
 private:
     VideoPacketPool* mPool;
     AudioEncoderAdapter* mAudioEncoderAdapter;

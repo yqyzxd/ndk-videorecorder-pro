@@ -45,3 +45,7 @@ int PitchShiftMixEffectFilter::filter(AudioRequest *request, AudioResponse *resp
 
     //todo
 }
+
+void PitchShiftMixEffectFilter::dealloc() {
+
+}

@@ -66,6 +66,8 @@ add_library( # Sets the name of the library.
         audio/player/audio_track_caller.cpp
         audio/player/audio_decoder.cpp
 
+        audio/effect/audio_effect_adapter.cpp
+        audio/effect/audio_effect_builder.cpp
         audio/effect/audio_effect.cpp
         audio/effect/param/sox_filter_compressor_param.cpp
         audio/effect/param/sox_filter_equalizer_param.cpp

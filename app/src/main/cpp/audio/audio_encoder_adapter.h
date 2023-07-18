@@ -11,6 +11,7 @@
 #include "../libs/blocking_queue/blocking_queue.h"
 #include "audio_encoder.h"
 #include "../video_packet_pool.h"
+#include "effect/audio_effect.h"
 
 
 class AudioEncoderAdapter : public Thread{
@@ -26,6 +27,8 @@ public:
 
     static int provideAudioFrameCallback(short* samples,int frameSize,int nbChannels,int64_t* pts,void* ctx);
     static int audioPacketCollector(AudioPacket* packet,void* ctx);
+
+    virtual void setAudioEffect(AudioEffect *audioEffect);
 
 protected:
     int mPacketBufferSize;

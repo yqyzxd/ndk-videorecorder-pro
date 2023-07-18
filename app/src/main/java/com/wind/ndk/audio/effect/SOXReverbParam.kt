@@ -26,6 +26,10 @@ data class SOXReverbParam(
      val echoNum:Int
 ){
 
+    constructor(param: SOXReverbParam):this(param.reverberance,param.damping,
+        param.roomScale,param.preDelay,param.wetGain,
+        param.stereoDepth,param.dryWetMix,param.echoDelay,param.echoPredecay,
+        param.echoPeriod,param.echoDecayRatio,param.echoPhaseDiff,param.echoNum)
 
     companion object{
 

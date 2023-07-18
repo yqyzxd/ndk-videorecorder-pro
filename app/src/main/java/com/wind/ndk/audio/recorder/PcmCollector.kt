@@ -1,5 +1,7 @@
 package com.wind.ndk.audio.recorder
 
+import com.wind.ndk.audio.effect.AudioEffect
+
 /**
  * FileName: PcmConsumer
  * Author: wind
@@ -10,7 +12,7 @@ package com.wind.ndk.audio.recorder
  *  <author> <time> <version> <desc>
  *
  */
-class PcmCollector(private val audioSampleRate:Int,private val bufferSizeInShort:Int) :AudioRecorder.Consumer {
+class PcmCollector(private val audioSampleRate:Int,private val bufferSizeInShort:Int) :AudioRecorder.Consumer,AudioRecorder.AudioEffectSetter {
     private var ptr:Long=0
 
 
@@ -26,10 +28,14 @@ class PcmCollector(private val audioSampleRate:Int,private val bufferSizeInShort
     override fun end() {
         nativeDealloc(ptr)
     }
-
+    override fun setAudioEffect(audioEffect: AudioEffect) {
+        nativeSetAudioEffect(ptr,audioEffect)
+    }
     private external fun nativeInit(audioSampleRate:Int, bufferSizeInShort:Int): Long
     private external fun nativeConsume(ptr: Long, shortArray: ShortArray, sizeInShort: Int)
     private external fun nativeDealloc(ptr: Long)
+
+    private external fun nativeSetAudioEffect(ptr: Long,audioEffect: AudioEffect)
 
 
 }

@@ -24,6 +24,7 @@ class AudioEffect {
 
     //用来计算人声伴奏音量
     float mOutputGain;
+    int mType;
 
 public:
     AudioEffect();
@@ -57,6 +58,12 @@ public:
         return mAudioInfo;
     }
 
+    int getType(){
+        return mType;
+    }
+    void setType(int type){
+        mType=type;
+    }
 
 
 };

@@ -1,6 +1,7 @@
 package com.wind.ndk.camera
 
 import android.util.Log
+import com.wind.ndk.audio.effect.AudioEffect
 import com.wind.ndk.audio.recorder.AudioRecorder
 import com.wind.ndk.audio.recorder.PcmCollector
 import kotlin.concurrent.thread
@@ -22,6 +23,12 @@ class VideoRecorder(
 
 
     private var mStop = false
+
+
+    fun setAudioEffect(audioEffect: AudioEffect){
+        mAudioRecorder.setAudioEffect(audioEffect)
+    }
+
     fun startRecord(
         outputUri: String,
         videoFrameRate: Int,
