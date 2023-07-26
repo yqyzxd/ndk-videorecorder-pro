@@ -13,13 +13,15 @@ AudioEffectLiveProcessor::~AudioEffectLiveProcessor() {
 }
 
 AudioResponse *
-AudioEffectLiveProcessor::process(short *vocalBuf, int vocalBufSize, short *accompanyBuf,
-                                  int accompanyBufSize, float position, int frameSize) {
+AudioEffectLiveProcessor::process(short *vocalBuf, int vocalBufSize,
+                                  short *accompanyBuf,int accompanyBufSize,int handleSize) {
 
     detectRebuildFilterChain();
-    mRequest->init(vocalBuf,vocalBufSize,accompanyBuf,accompanyBufSize,position,frameSize);
+    mRequest->init(vocalBuf,vocalBufSize,accompanyBuf,accompanyBufSize,handleSize);
     mResponse->dealloc();
     mVocalEffectFilterChain->filter(mRequest,mResponse);
+
+    //直播场景下没有对伴奏Accompany进行Effect处理
 
     mMixEffectFilter->filter(mRequest,mResponse);
     //后处理

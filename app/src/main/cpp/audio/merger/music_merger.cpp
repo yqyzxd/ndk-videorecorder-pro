@@ -3,9 +3,7 @@
 //
 
 #include "music_merger.h"
-#include "../../utils/types.h"
-#include "../../utils/log.h"
-#include "../effect/processor/audio_effect_processor_factory.h"
+
 
 #define LOG_TAG "MusicMerger"
 MusicMerger::MusicMerger(){
@@ -35,6 +33,7 @@ int MusicMerger::mergeMusic(short *accompanySamples, int accompanySize,int* acco
                             short *audioSamples,int audioSize,int* audioSamplesCursor) {
 
 
+    //
 
 
     int ret=0;
@@ -51,16 +50,19 @@ int MusicMerger::mergeMusic(short *accompanySamples, int accompanySize,int* acco
         }
     }
 
-    for (int i=0;i<mergeSize;i++){
+
+    mAudioEffectProcessor->process(audioSamples+*audioSamplesCursor,audioRemainSize,
+                                   accompanySamples+*accompanySamplesCursor,accompanyRemainSize,mergeSize);
+
+   /* for (int i=0;i<mergeSize;i++){
         int audioPosition=*audioSamplesCursor+i;
         short audio=audioSamples[audioPosition];
 
         int accompanyPosition=*accompanySamplesCursor+i;
         short accompany=accompanySamples[accompanyPosition];
         audioSamples[audioPosition]=mixSamples(accompany,audio);
-        //audioSamples[audioPosition]=accompany;
 
-    }
+    }*/
 
     int newAccompanySamplesCursor=(*accompanySamplesCursor+mergeSize);
     *accompanySamplesCursor=newAccompanySamplesCursor;

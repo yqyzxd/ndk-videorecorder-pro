@@ -7,8 +7,9 @@
 
 #include "../effect/audio_effect.h"
 #include "../effect/processor/audio_effect_processor.h"
-
-
+#include "../../utils/types.h"
+#include "../../utils/log.h"
+#include "../effect/processor/audio_effect_processor_factory.h"
 
 //将伴奏和录音合并成一轨
 class MusicMerger {

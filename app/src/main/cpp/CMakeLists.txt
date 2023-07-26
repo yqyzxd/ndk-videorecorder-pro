@@ -73,6 +73,7 @@ add_library( # Sets the name of the library.
         audio/effect/param/sox_filter_equalizer_param.cpp
         audio/effect/param/sox_filter_reverb_param.cpp
         audio/effect/param/sox_filter_chain_param.cpp
+        audio/effect/param/compressor_param_builder.cpp
 
         audio/effect/processor/audio_effect_processor_factory.cpp
         audio/effect/processor/audio_request.cpp
@@ -86,8 +87,19 @@ add_library( # Sets the name of the library.
         audio/effect/volume_adjuster.cpp
 
         audio/effect/filter/impl/volume_adjust/vocal_agc_volume_adjust_effect_filter.cpp
+        audio/effect/filter/impl/volume_adjust/accompany_agc_volume_adjust_effect_filter.cpp
+        audio/effect/filter/impl/sox_effect/compressor_effect_filter.cpp
+        audio/effect/filter/impl/sox_effect/sox_base_effect.cpp
+        audio/effect/filter/impl/sox_effect/sox_compressor_effect.cpp
         audio/effect/filter/impl/specific/mix_effect_filter.cpp
         audio/effect/filter/impl/specific/pitch_shift_mix_effect_filter.cpp
+
+
+        video_effect/opengl_video_frame.cpp
+        video_effect/video_effect_processor.cpp
+        video_effect/model_filter.cpp
+        video_effect/model_timeline.cpp
+        video_effect/model_track.cpp
 
         utils/jni_caller.cpp
 

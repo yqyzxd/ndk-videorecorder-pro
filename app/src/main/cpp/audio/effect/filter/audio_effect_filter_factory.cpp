@@ -3,6 +3,7 @@
 //
 
 #include "audio_effect_filter_factory.h"
+#include "impl/volume_adjust/accompany_agc_volume_adjust_effect_filter.h"
 
 
 AudioEffectFilterFactory::AudioEffectFilterFactory() {
@@ -22,9 +23,18 @@ AudioEffectFilter *AudioEffectFilterFactory::buildFilter(EffectFilterType type) 
     AudioEffectFilter* filter= nullptr;
     switch(type){
         case FilterTypeVocalAGCVolumeAdjustEffect:
+            //人声自动音量控制
             filter=new VocalAGCVolumeAdjustEffectFilter();
             break;
+        case FilterTypeAccompanyAGCVolumeAdjustEffect:
+            //伴奏自动音量控制
+            filter=new AccompanyAGCVolumeAdjustEffectFilter();
+            break;
 
+        case FilterTypeCompressor:
+            //压缩效果器
+            filter=new CompressorEffectFilter();
+            break;
 
     }
 

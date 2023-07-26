@@ -10,6 +10,7 @@
 #include "../../filter/audio_effect_filter_chain.h"
 #include "../../filter/impl/specific/mix_effect_filter.h"
 
+
 class AudioEffectPostProcessor : public AudioEffectProcessor{
 protected:
     //人声处理
@@ -39,7 +40,7 @@ public:
     virtual void init(AudioEffect *audioEffect);
     virtual AudioResponse* process(short* vocalBuf,int vocalBufSiz,float position,long frameSize);
     virtual AudioResponse* processAccompany(short* accompanyBuf,int accompanyBufSize,float position,long frameSize);
-    virtual AudioResponse* process(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize,float position,long frameSize);
+    virtual AudioResponse* process(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize,int handleSize);
 
     virtual void setAudioEffect(AudioEffect* audioEffect);
     virtual void resetFilterChains();

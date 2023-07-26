@@ -7,7 +7,10 @@
 
 #include <map>
 #include <string>
+extern "C"{
 #include "../../../thirdparty/sox.include/sox.h"
+};
+
 
 class AudioEffectContext {
 private:

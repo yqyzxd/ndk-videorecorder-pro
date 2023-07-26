@@ -23,7 +23,7 @@ public:
 
     virtual AudioResponse* process(short* vocalBuf,int vocalBufSiz,float position,long frameSize)=0;
     virtual AudioResponse* processAccompany(short* accompanyBuf,int accompanyBufSize,float position,long frameSize)=0;
-    virtual AudioResponse* process(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize,float position,long frameSize)=0;
+    virtual AudioResponse* process(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize,int handleSize)=0;
 
     virtual void setAudioEffect(AudioEffect* audioEffect)=0;
     virtual void dealloc(){

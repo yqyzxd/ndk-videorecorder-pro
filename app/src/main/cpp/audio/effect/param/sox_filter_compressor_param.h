@@ -38,22 +38,35 @@ private:
     float delay;
 
 public:
+    SOXFilterCompressorParam();
     SOXFilterCompressorParam(float attack, float release, int soft_knee_db,
                              int input, int input1, int output1, int input2, int output2,
                              int input3, int output3, int input4, int output4, int input5,
                              int output5, int input6, int output6, int gain, int initial_volume, float delay);
     ~SOXFilterCompressorParam();
 
-   /* void init(int input1, int output1, int input2, int output2,
+    void init(int input1, int output1, int input2, int output2,
               int input3, int output3, int input4, int output4, int input5,
               int output5, int input6, int output6);
-    */
+
 
    void setValid(bool valid);
    bool isValid();
 
 
+   void setAttackTime(float attack){
+       this->attack=attack;
+   }
+
+   void setDecayTime(float release){
+        this->release=release;
+   }
+
+   void setGain(int gain){
+       this->gain=gain;
+   }
 };
+
 
 
 #endif //NDK_VIDEORECORDER_SOX_FILTER_COMPRESSOR_PARAM_H

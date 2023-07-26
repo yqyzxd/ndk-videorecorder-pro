@@ -17,15 +17,14 @@ void AudioRequest::init(short *vocalBuf, int vocalBufSize, float position, long 
 }
 
 void
-AudioRequest::init(short *vocalBuf, int vocalBufSize, short *accompanyBuf, int accompanyBufSize,
-                   float position, long frameSize) {
+AudioRequest::init(short *vocalBuf, int vocalBufSize, short *accompanyBuf, int accompanyBufSize,int handleSize) {
     mVocalBuf=vocalBuf;
     mVocalBufSize=vocalBufSize;
-    mPosition=position;
-    mFrameSize=frameSize;
 
     mAccompanyBuf=accompanyBuf;
     mAccompanyBufSize=accompanyBufSize;
+
+    mHandleSize=handleSize;
 }
 
 void AudioRequest::initAccompany(short *accompanyBuf, int accompanyBufSize, float position,

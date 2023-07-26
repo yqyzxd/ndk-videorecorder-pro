@@ -13,7 +13,7 @@ public:
     AudioEffectLiveProcessor();
     ~AudioEffectLiveProcessor();
 
-    virtual AudioResponse* process(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize,float position,int frameSize);
+    virtual AudioResponse* process(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize,int handleSize);
 
     virtual void initFilterChains();
     virtual void deallocFilterChains();

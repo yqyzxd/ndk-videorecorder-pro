@@ -12,7 +12,8 @@ AudioEffectPostProcessor::AudioEffectPostProcessor() {
 }
 
 AudioEffectPostProcessor::~AudioEffectPostProcessor() {
-
+    delete mRequest;
+    delete mResponse;
 }
 
 void AudioEffectPostProcessor::init(AudioEffect *audioEffect) {
@@ -41,9 +42,9 @@ AudioResponse *AudioEffectPostProcessor::process(short *vocalBuf, int vocalBufSi
 
 AudioResponse *
 AudioEffectPostProcessor::process(short *vocalBuf, int vocalBufSize, short *accompanyBuf,
-                                  int accompanyBufSize, float position, long frameSize) {
+                                  int accompanyBufSize,int handleSize) {
     detectRebuildFilterChain();
-    mRequest->init(vocalBuf,vocalBufSize,accompanyBuf,accompanyBufSize,position,frameSize);
+    mRequest->init(vocalBuf,vocalBufSize,accompanyBuf,accompanyBufSize);
     mResponse->dealloc();
     mVocalEffectFilterChain->filter(mRequest,mResponse);
     mAccompanyEffectFilterChain->filter(mRequest,mResponse);

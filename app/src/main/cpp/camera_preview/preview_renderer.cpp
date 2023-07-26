@@ -100,6 +100,7 @@ void PreviewRenderer::onDrawFrame() {
     textureId=mScreenFilter->onDrawFrame(textureId);
     checkGlError("mScreenFilter onDrawFrame");
 
+    //此处进行处理
 
     if (mEncoding){
         //encode

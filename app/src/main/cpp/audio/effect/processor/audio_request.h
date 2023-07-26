@@ -14,9 +14,10 @@ private:
 
     short *mAccompanyBuf;
     int mAccompanyBufSize;
+    //需要处理的bufSize
+    int mHandleSize;
 
     float mPosition;
-
     long mFrameSize;
     std::map<std::string, void *> *mExtraData;
 
@@ -25,7 +26,7 @@ public:
     ~AudioRequest();
 
     void init(short *vocalBuf, int vocalBufSize, float position, long frameSize);
-    void init(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize, float position, long frameSize);
+    void init(short* vocalBuf,int vocalBufSize,short* accompanyBuf,int accompanyBufSize,int handleSize);
     void initAccompany(short *accompanyBuf, int accompanyBufSize, float position, long frameSize);
 
 
@@ -40,6 +41,10 @@ public:
     }
     int getAccompanyBufSize(){
         return mAccompanyBufSize;
+    }
+
+    int getHandleSize(){
+        return mHandleSize;
     }
 };
 
