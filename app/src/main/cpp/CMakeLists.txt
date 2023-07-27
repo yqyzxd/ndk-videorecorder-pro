@@ -100,6 +100,9 @@ add_library( # Sets the name of the library.
         video_effect/model_filter.cpp
         video_effect/model_timeline.cpp
         video_effect/model_track.cpp
+        video_effect/video_filter_utils.cpp
+        video_effect/filter/selective_blur_scene/selective_blur_scene_filter.cpp
+        video_effect/video_effect_cache.cpp
 
         utils/jni_caller.cpp
 

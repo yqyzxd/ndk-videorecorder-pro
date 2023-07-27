@@ -33,7 +33,7 @@ AudioEffectFilter *AudioEffectFilterFactory::buildFilter(EffectFilterType type) 
 
         case FilterTypeCompressor:
             //压缩效果器
-            filter=new CompressorEffectFilter();
+            //filter=new CompressorEffectFilter();
             break;
 
     }

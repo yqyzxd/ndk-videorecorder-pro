@@ -43,7 +43,7 @@ public:
     EffectCallback* getFilterCallback();
 
     int getId(){
-        return id;
+        return mId;
     }
 
 public:

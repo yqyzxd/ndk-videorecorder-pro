@@ -7,7 +7,7 @@
 
 #include <list>
 #include "model_filter.h"
-
+#include "model_track.h"
 using namespace std;
 class ModelTimeline {
 public:

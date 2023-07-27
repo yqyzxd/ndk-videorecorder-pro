@@ -29,3 +29,15 @@ int SOXCompressorEffect::initChain(SOXFilterChainParam *filterChainParam) {
     SOXBaseEffect::initSignal();
 
 }
+
+void SOXCompressorEffect::destroyChain() {
+    if ( mCompressorChain!= nullptr) {
+        sox_delete_effects_chain(mCompressorChain);
+    }
+}
+
+int SOXCompressorEffect::process(short *samples, int sampleSize) {
+    //todo
+
+    return 0;
+}

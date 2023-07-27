@@ -8,9 +8,12 @@
 #include <string>
 #include "opengl_video_frame.h"
 #include "video_effect_def.h"
+#include "model_timeline.h"
+#include "../libgles/gles/base_filter.h"
+#include "theme_parser.h"
 using namespace std;
 
-class VideoEffectProcessor {
+class VideoEffectProcessor :public BaseFilter{
 public:
     VideoEffectProcessor();
     virtual ~VideoEffectProcessor();
@@ -27,10 +30,19 @@ public:
 
 
 private:
+
+    GLuint mFBO;
+
     OpenGLVideoFrame* mInputVideoFrame;
     OpenGLVideoFrame* mOutputVideoFrame;
 
 
+    pthread_rwlock_t mRwLock;
+    ModelTimeline* mTimeline;
+    bool mNeedChangeTimeline;
+
+    void* mContext;
+    pfnDetectGPUSupportedEffect  mDetectGPUSurpportedEffectByPlatforms;
 };
 
 

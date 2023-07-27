@@ -44,7 +44,7 @@ AudioResponse *
 AudioEffectPostProcessor::process(short *vocalBuf, int vocalBufSize, short *accompanyBuf,
                                   int accompanyBufSize,int handleSize) {
     detectRebuildFilterChain();
-    mRequest->init(vocalBuf,vocalBufSize,accompanyBuf,accompanyBufSize);
+    mRequest->init(vocalBuf,vocalBufSize,accompanyBuf,accompanyBufSize,handleSize);
     mResponse->dealloc();
     mVocalEffectFilterChain->filter(mRequest,mResponse);
     mAccompanyEffectFilterChain->filter(mRequest,mResponse);

@@ -8,6 +8,7 @@
 
 #include "model_filter.h"
 #include <list>
+#include "video_filter_utils.h"
 
 class ModelTrack {
 public:

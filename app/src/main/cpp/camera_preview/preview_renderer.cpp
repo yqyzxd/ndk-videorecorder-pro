@@ -101,6 +101,7 @@ void PreviewRenderer::onDrawFrame() {
     checkGlError("mScreenFilter onDrawFrame");
 
     //此处进行处理
+    //textureId=mEffectProcessor.onDrawFrame(textureId)
 
     if (mEncoding){
         //encode

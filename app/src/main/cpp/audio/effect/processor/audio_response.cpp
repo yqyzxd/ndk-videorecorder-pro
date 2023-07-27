@@ -7,7 +7,7 @@
 AudioResponse::AudioResponse() {
     mExtraData=new std::map<std::string,void*>();
 }
-
+AudioResponse::~AudioResponse() {}
 void AudioResponse::put(std::string key,void* value){
     mExtraData->insert(std::pair<std::string,void*>(key,value));
 }
