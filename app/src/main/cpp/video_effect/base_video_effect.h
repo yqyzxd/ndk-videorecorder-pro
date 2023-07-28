@@ -7,25 +7,23 @@
 
 #include "video_effect_def.h"
 #include "opengl_video_frame.h"
-class BaseVideoEffect {
+#include "gles/base_fbo_filter.h"
+
+
+class BaseVideoEffect : public BaseFboFilter{
 public:
-    BaseVideoEffect();
+    BaseVideoEffect(const char *vertexSource, const char *fragmentSource);
+    BaseVideoEffect(): BaseVideoEffect(base_vertex,base_fragment){
+        mEffectCallback= nullptr;
+    };
     virtual ~BaseVideoEffect();
 
-    virtual bool init();
-    virtual void renderEffect(OpenGLVideoFrame* inputFrame,OpenGLVideoFrame outputFrame,EffectCallback* filterCallback,GLfloat* vertexCoords, GLfloat* textureCoords);
-    virtual void renderEffect(OpenGLVideoFrame* inputFrame,OpenGLVideoFrame outputFrame,EffectCallback* filterCallback);
-    virtual void draw();
-    virtual void bindTexture(int texId);
-    virtual void destroy();
-    virtual void buildParamDefaultValue();
+
+
+    void setEffectCallback(EffectCallback* callback);
 
 protected:
-    char* mVertexShader;
-    char* mFragmentShader;
-
-    bool mInitialized;
-
+    EffectCallback* mEffectCallback;
 };
 
 

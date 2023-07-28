@@ -104,6 +104,13 @@ add_library( # Sets the name of the library.
         video_effect/filter/selective_blur_scene/selective_blur_scene_filter.cpp
         video_effect/video_effect_cache.cpp
 
+
+        video_effect/base_video_effect.cpp
+        video_effect/saturation_scene/saturation_effect.cpp
+        video_effect/time_stretch/time_stretch_effect.cpp
+        video_effect/beautify_face/beautify_face_cool_effect.cpp
+        video_effect/group_video_effect.cpp
+
         utils/jni_caller.cpp
 
         )
