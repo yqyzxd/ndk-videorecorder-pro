@@ -5,7 +5,7 @@
 #include "beautify_face_cool_effect.h"
 BeautifyFaceCoolEffect::BeautifyFaceCoolEffect(){
 
-   // this->addEffect();
+   this->addEffect();
 }
 
 BeautifyFaceCoolEffect::~BeautifyFaceCoolEffect(){

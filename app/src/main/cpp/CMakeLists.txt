@@ -110,6 +110,8 @@ add_library( # Sets the name of the library.
         video_effect/time_stretch/time_stretch_effect.cpp
         video_effect/beautify_face/beautify_face_cool_effect.cpp
         video_effect/group_video_effect.cpp
+        video_effect/beautify_face/smooth_skin_horizontal_effect.cpp
+        video_effect/beautify_face/smooth_skin_vertical_effect.cpp
 
         utils/jni_caller.cpp
 

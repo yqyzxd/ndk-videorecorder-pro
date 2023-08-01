@@ -18,7 +18,10 @@ public:
     };
     virtual ~BaseVideoEffect();
 
-
+    virtual void onReady(int width,int height);
+    virtual GLuint onDrawFrame(GLuint textureId);
+    int readPixels(void *pixels);
+    virtual void dealloc();
 
     void setEffectCallback(EffectCallback* callback);
 
