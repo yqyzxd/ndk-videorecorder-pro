@@ -3,7 +3,7 @@
 //
 
 #include "smooth_skin_horizontal_effect.h"
-SmoothHorizontalSkinEffect::SmoothHorizontalSkinEffect(): BaseVideoEffect(OPTIMIZED_SKIN_HORIZONTAL_VERTEX_SHADER,OPTIMIZED_SKIN_HORIZONTAL_FRAG_SHADER) {
+SmoothSkinHorizontalEffect::SmoothSkinHorizontalEffect(): BaseVideoEffect(OPTIMIZED_SKIN_HORIZONTAL_VERTEX_SHADER,OPTIMIZED_SKIN_HORIZONTAL_FRAG_SHADER) {
 
 
     uTexelWidthOffsetLocation=glGetUniformLocation(mProgram,"u_TexelWidthOffset");
@@ -12,9 +12,9 @@ SmoothHorizontalSkinEffect::SmoothHorizontalSkinEffect(): BaseVideoEffect(OPTIMI
 
 
 }
+SmoothSkinHorizontalEffect::~SmoothSkinHorizontalEffect() noexcept {}
 
-
-void SmoothHorizontalSkinEffect::inflateLocation(GLuint textureId) {
+void SmoothSkinHorizontalEffect::inflateLocation(GLuint textureId) {
     BaseVideoEffect::inflateLocation(textureId);
     /** 设置FadeIn的Progress **/
     glUniform1f(uTexelWidthOffsetLocation, 0.0);

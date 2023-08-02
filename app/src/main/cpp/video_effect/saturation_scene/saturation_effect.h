@@ -31,7 +31,7 @@ class SaturationEffect : public BaseVideoEffect{
 
 public:
     SaturationEffect();
-    virtual ~SaturationEffect();
+    ~SaturationEffect();
 
     void inflateLocation(GLuint textureId) override;
 private:

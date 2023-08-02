@@ -33,15 +33,17 @@ void Texture::updateTexImage(void* pixels, int frameWidth, int frameHeight) {
 		glTexImage2D(target, 0, GL_RGBA, frameWidth, frameHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 	}
 }
-
-bool Texture::bindTexture(GLint uniformSampler) {
-	glActiveTexture(GL_TEXTURE0);
+bool Texture::bindTexture(GLenum texture,GLint uniformSampler) {
+	glActiveTexture(texture);
 	glBindTexture(target, textureId);
 	if (checkGlError("glBindTexture")) {
 		return false;
 	}
 	glUniform1i(uniformSampler, 0);
 	return true;
+}
+bool Texture::bindTexture(GLint uniformSampler) {
+	return bindTexture(GL_TEXTURE0,uniformSampler);
 }
 
 int Texture::initTexture() {

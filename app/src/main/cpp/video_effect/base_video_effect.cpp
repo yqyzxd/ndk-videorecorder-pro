@@ -3,3 +3,12 @@
 //
 
 #include "base_video_effect.h"
+BaseVideoEffect::BaseVideoEffect(const char *vertexSource, const char *fragmentSource):
+                BaseFboFilter(vertexSource,fragmentSource) {
+
+}
+
+BaseVideoEffect::~BaseVideoEffect() noexcept {
+
+}
+

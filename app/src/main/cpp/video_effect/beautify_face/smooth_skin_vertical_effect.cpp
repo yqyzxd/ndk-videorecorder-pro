@@ -7,9 +7,6 @@
 
 SmoothSkinVerticalEffect::SmoothSkinVerticalEffect(): BaseVideoEffect(OPTIMIZED_SKIN_VERTICAL_VERTEX_SHADER,OPTIMIZED_SKIN_VERTICAL_FRAG_SHADER){
 
-
-
-
     uTexelWidthOffsetLocation= glGetUniformLocation(mProgram, "u_TexelWidthOffset");
     uTexelHeightOffsetLocation= glGetUniformLocation(mProgram, "u_TexelHeightOffset");
 
@@ -19,6 +16,8 @@ SmoothSkinVerticalEffect::SmoothSkinVerticalEffect(): BaseVideoEffect(OPTIMIZED_
     uSaturationRatioLocation= glGetUniformLocation(mProgram, "u_SaturationRatio");
 
 }
+
+SmoothSkinVerticalEffect::~SmoothSkinVerticalEffect() noexcept {}
 
 void SmoothSkinVerticalEffect::inflateLocation(GLuint textureId) {
 

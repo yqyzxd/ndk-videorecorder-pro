@@ -4,6 +4,7 @@
 #include "video_filter_utils.h"
 #include "saturation_scene/saturation_effect.h"
 #include "time_stretch/time_stretch_effect.h"
+#include "beautify_face/beautify_face_cool_effect.h"
 
 BaseVideoEffect* createVideoEffect(const char* filterName){
     BaseVideoEffect* effect= nullptr;
@@ -12,7 +13,7 @@ BaseVideoEffect* createVideoEffect(const char* filterName){
     } else if (strcmp(filterName,TIME_STRETCH_FILTER_NAME)==0){
         effect=new TimeStretchEffect();
     } else if (strcmp(filterName,BEAUTIFY_FACE_COOL_FILTER_NAME)==0){
-         effect=new BuautifyFaceCoolEffect();
+         effect=new BeautifyFaceCoolEffect();
     } else{
         effect=new BaseVideoEffect();
     }

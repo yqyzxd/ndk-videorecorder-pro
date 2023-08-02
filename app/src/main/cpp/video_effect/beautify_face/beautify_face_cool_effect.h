@@ -7,6 +7,8 @@
 
 
 #include "../group_video_effect.h"
+#include "smooth_skin_horizontal_effect.h"
+#include "smooth_skin_vertical_effect.h"
 
 class BeautifyFaceCoolEffect: public GroupVideoEffect{
 public:

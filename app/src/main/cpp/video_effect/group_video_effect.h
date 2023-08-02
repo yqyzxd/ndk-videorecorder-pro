@@ -12,7 +12,7 @@
 #include <list>
 
 using namespace std;
-class GroupVideoEffect:public BaseFilter{
+class GroupVideoEffect:public BaseVideoEffect{
 public:
     GroupVideoEffect();
     virtual ~GroupVideoEffect();

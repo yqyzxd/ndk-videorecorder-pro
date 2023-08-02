@@ -112,6 +112,10 @@ add_library( # Sets the name of the library.
         video_effect/group_video_effect.cpp
         video_effect/beautify_face/smooth_skin_horizontal_effect.cpp
         video_effect/beautify_face/smooth_skin_vertical_effect.cpp
+        video_effect/beautify_face/hue_effect.cpp
+        video_effect/beautify_face/sharpen_effect.cpp
+        video_effect/beautify_face/tone_curve_effect.cpp
+
 
         utils/jni_caller.cpp
 

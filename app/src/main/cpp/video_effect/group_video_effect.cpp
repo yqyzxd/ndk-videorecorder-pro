@@ -8,7 +8,7 @@ GroupVideoEffect::GroupVideoEffect() {
     mEffects=new std::list<BaseVideoEffect*>();
 }
 
-GroupVideoEffect::~GroupVideoEffect() noexcept {
+GroupVideoEffect::~GroupVideoEffect()  {
     if(NULL != mEffects){
         mEffects->clear();
         delete mEffects;
@@ -34,6 +34,8 @@ GLuint GroupVideoEffect::onDrawFrame(GLuint textureId) {
         BaseVideoEffect* effect=*iter;
         textureId=effect->onDrawFrame(textureId);
     }
+
+    return textureId;
 }
 
 void GroupVideoEffect::dealloc() {

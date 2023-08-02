@@ -65,10 +65,10 @@ static char *OPTIMIZED_SKIN_HORIZONTAL_FRAG_SHADER =
         "}																							\n";
 
 
-class SmoothHorizontalSkinEffect : public BaseVideoEffect {
+class SmoothSkinHorizontalEffect : public BaseVideoEffect {
 public:
-    SmoothHorizontalSkinEffect();
-    virtual ~SmoothHorizontalSkinEffect();
+    SmoothSkinHorizontalEffect();
+    virtual ~SmoothSkinHorizontalEffect();
 
     /**填充AttributeLocation，UniformLocation等*/
     virtual void inflateLocation(GLuint textureId);
