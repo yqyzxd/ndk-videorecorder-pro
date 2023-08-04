@@ -3,7 +3,7 @@
 //
 
 #include "beautify_face_cool_effect.h"
-#include "hue_effect.h"
+
 
 
 BeautifyFaceCoolEffect::BeautifyFaceCoolEffect(){
@@ -11,6 +11,8 @@ BeautifyFaceCoolEffect::BeautifyFaceCoolEffect(){
    this->addEffect(new SmoothSkinHorizontalEffect());
    this->addEffect(new SmoothSkinVerticalEffect());
    this->addEffect(new HueEffect());
+   this->addEffect(new SharpenEffect());
+   this->addEffect(new ToneCurveEffect());
 }
 
 BeautifyFaceCoolEffect::~BeautifyFaceCoolEffect(){

@@ -20,7 +20,7 @@ public:
 	bool createTexture();
 	void updateTexImage(void* pixels, int width, int height);
 	bool bindTexture(GLint uniformSampler);
-	bool bindTexture(GLenum texture,GLint uniformSampler);
+	bool bindTexture(GLenum texture,GLint v0,GLint uniformSampler);
 	void dealloc();
 };
 

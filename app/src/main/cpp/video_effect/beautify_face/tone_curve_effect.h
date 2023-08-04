@@ -50,15 +50,30 @@ public:
     virtual void inflateLocation(GLuint textureId);
 
 private:
-    Texture* mToneCurveTexture;
+    GLuint mToneCurveTextureId;
     GLint uToneCurveTextureLocation;
 
     byte* mACVBuffer;
     int mACVBufferSize;
 
-    void fillControlPointsFromACVBuffer();
+    vector<PointF*>* mRgbCompositeControlPoints;
+    vector<PointF*>* mRedControlPoints;
+    vector<PointF*>* mGreenControlPoints;
+    vector<PointF*>* mBlueControlPoints;
 
+    vector<float>* mRgbCompositeCurve;
+    vector<float>* mRedCurve;
+    vector<float>* mGreenCurve;
+    vector<float>* mBlueCurve;
+
+
+    std::vector<float>* createSplineCurve(std::vector<PointF*>* points);
+    std::vector<PointF*>* createSplineCurve2(std::vector<PointF*>* convertedPoints);
+    std::vector<double>* createSecondDerivative(std::vector<PointF*>* points);
+
+    void fillControlPointsFromACVBuffer();
     short readShortFromACVBuffer();
+    void updateToneCurveTexture();
 };
 
 

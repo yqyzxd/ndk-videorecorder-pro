@@ -7,7 +7,7 @@
 #include "beautify_face/beautify_face_cool_effect.h"
 
 BaseVideoEffect* createVideoEffect(const char* filterName){
-    BaseVideoEffect* effect= nullptr;
+    BaseVideoEffect* effect;
     if (strcmp(filterName,SATURATION_SCENE_FILTER_NAME)==0){
         effect=new SaturationEffect();
     } else if (strcmp(filterName,TIME_STRETCH_FILTER_NAME)==0){
